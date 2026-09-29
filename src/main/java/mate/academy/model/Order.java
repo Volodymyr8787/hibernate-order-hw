@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Table(name = "order")
+@Table(name = "orders")
 @Entity
 public class Order {
     @Id
@@ -22,7 +22,7 @@ public class Order {
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "order")
     private List<Ticket> tickets;
 
     public Order() {
