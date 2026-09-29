@@ -105,7 +105,7 @@ public class Main {
         System.out.println("Completed order:");
         System.out.println(order);
 
-        List<Order> orderHistory = orderService.getOrderHistory(user);
+        List<Order> orderHistory = orderService.getOrdersHistory(user);
 
         System.out.println("Order history:");
         orderHistory.forEach(System.out::println);

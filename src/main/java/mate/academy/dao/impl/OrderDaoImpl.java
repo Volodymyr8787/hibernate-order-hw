@@ -2,6 +2,7 @@ package mate.academy.dao.impl;
 
 import java.util.List;
 import mate.academy.dao.OrderDao;
+import mate.academy.exception.DataProcessingException;
 import mate.academy.lib.Dao;
 import mate.academy.model.Order;
 import mate.academy.model.User;
@@ -42,6 +43,8 @@ public class OrderDaoImpl implements OrderDao {
                             Order.class)
                     .setParameter("user", user)
                     .getResultList();
+        } catch (HibernateException e) {
+            throw new DataProcessingException("Can't get orders by user: " + user, e);
         }
     }
 }
